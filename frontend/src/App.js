@@ -14,8 +14,10 @@ import {
   Home,
   Loader,
   Login,
+  Musics,
   MusicPlayer,
   UserProfile,
+  Contact,
 } from "./components";
 import { useStateValue } from "./Context/StateProvider";
 import { actionType } from "./Context/reducer";
@@ -24,7 +26,7 @@ import { motion, AnimatePresence } from "framer-motion";
 function App() {
   const firebaseAuth = getAuth(app);
   const navigate = useNavigate();
-  const [{ user, allSongs, song, isSongPlaying, miniPlayer }, dispatch] =
+  const [{ user, allSongs, musics, song, isSongPlaying, miniPlayer }, dispatch] =
     useStateValue();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -83,6 +85,8 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login setAuth={setAuth} />} />
           <Route path="/*" element={<Home />} />
+          <Route path="/musics" element={<Musics />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard/*" element={<Dashboard />} />
           <Route path="/userProfile" element={<UserProfile />} />
         </Routes>

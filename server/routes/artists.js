@@ -33,7 +33,7 @@ router.get("/getOne/:getOne", async (req, res) => {
     res.status(200).send({ success: true, msg: "No Data Found" });
   }
 });
-
+//save Artist details
 router.post("/save", async (req, res) => {
   const newArtist = artist({
     name: req.body.name,
@@ -48,7 +48,7 @@ router.post("/save", async (req, res) => {
     res.status(400).send({ success: false, msg: error });
   }
 });
-
+//update Artist
 router.put("/update/:updateId", async (req, res) => {
   const filter = { _id: req.params.updateId };
   const options = {
@@ -71,7 +71,7 @@ router.put("/update/:updateId", async (req, res) => {
     res.status(400).send({ success: false, msg: error });
   }
 });
-
+//delete artist 
 router.delete("/delete/:deleteId", async (req, res) => {
   const filter = { _id: req.params.deleteId };
 

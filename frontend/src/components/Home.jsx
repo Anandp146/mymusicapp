@@ -40,9 +40,9 @@ const Home = () => {
     if (searchTerm.length > 0) {
       const filtered = allSongs.filter(
         (data) =>
-          data.artist.toLowerCase().includes(searchTerm) ||
-          data.language.toLowerCase().includes(searchTerm) ||
-          data.name.toLowerCase().includes(searchTerm) ||
+          data.artist.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          data.language.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          data.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
           data.artist.includes(artistFilter)
       );
       setFilteredSongs(filtered);
@@ -61,16 +61,15 @@ const Home = () => {
   }, [artistFilter]);
 
   useEffect(() => {
-    const filtered = allSongs?.filter(
-      (data) => data.category.toLowerCase() === filterTerm
-    );
-    if (filtered) {
-      setFilteredSongs(filtered);
+    if (allSongs) {
+      const filtered = allSongs.filter(
+        (data) => data.category && data.category.toLowerCase() === filterTerm
+      );
+      setFilteredSongs(filtered.length > 0 ? filtered : null);
     } else {
       setFilteredSongs(null);
     }
-  }, [filterTerm]);
-
+  }, [filterTerm, allSongs]);
   useEffect(() => {
     const filtered = allSongs?.filter((data) => data.album === albumFilter);
     if (filtered) {

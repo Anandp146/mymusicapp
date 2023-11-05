@@ -6,6 +6,8 @@ export { default as SearchBar } from "./SearchBar";
 export { default as Filter } from "./Filter";
 export { default as FilterButtons } from "./FilterButtons";
 export { default as UserProfile } from "./UserProfile";
+export { default as Musics } from "./Musics"
+export { default as Contact } from "./Contact"
 
 export { default as Dashboard } from "./Dashboard";
 export { default as DashBoardHome } from "./DashBoardHome";

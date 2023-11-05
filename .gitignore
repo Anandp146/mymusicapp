@@ -1,6 +1,5 @@
-client/.env
 server/.env
-server/config/serviceAccountKey.json
+server/node_modules
 
 ### Node ###
 # Logs
